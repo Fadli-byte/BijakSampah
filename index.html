@@ -925,9 +925,15 @@
 
         /* Scroll Animation */
         .animate-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out;
+        }
+        
+        /* Only hide if JS will handle animation */
+        .js-enabled .animate-on-scroll:not(.animated) {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
         }
 
         .animate-on-scroll.animated {
@@ -953,6 +959,7 @@
                 <li><a href="#fakta">Fakta</a></li>
                 <li><a href="#langkah">Langkah</a></li>
                 <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#brosur">Brosur</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
@@ -985,19 +992,19 @@
     <section id="profil">
         <h2 class="section-title">Tentang Kami</h2>
         <div class="profil-grid">
-            <div class="profil-card animate-on-scroll">
+            <div class="profil-card">
                 <h3>🎯 Visi Kami</h3>
                 <p>"To make sustainable living commonplace" - Menjadikan kehidupan berkelanjutan sebagai hal yang umum dalam keseharian masyarakat Indonesia dan dunia.</p>
             </div>
-            <div class="profil-card animate-on-scroll">
+            <div class="profil-card">
                 <h3>💡 Misi Kami</h3>
-                <p>Mengumpulkan dan memproses limbah plastik kemasan untuk menciptakan ekonomi sirkular yang lebih baik bagi lingkungan dan masyarakat.</p>
+                <p>Mengumpulkan dan memproses limbah plastik kemasan lalu kami jual untuk menciptakan ekonomi sirkular yang lebih baik bagi lingkungan dan masyarakat.</p>
             </div>
-            <div class="profil-card animate-on-scroll">
+            <div class="profil-card">
                 <h3>🤝 Kemitraan</h3>
                 <p>Kami bergerak bersama Waste4Change, Gerakan Indonesia Bersih, dan komunitas lokal untuk mewujudkan Indonesia bebas sampah plastik.</p>
             </div>
-            <div class="profil-card animate-on-scroll">
+            <div class="profil-card">
                 <h3>🏢 PT Unilever Indonesia Tbk</h3>
                 <p>Perusahaan consumer goods terkemuka yang berkomitmen pada keberlanjutan lingkungan melalui berbagai program tanggung jawab sosial perusahaan.</p>
             </div>
@@ -1008,7 +1015,7 @@
     <section id="berita" style="background: white;">
         <h2 class="section-title">Berita Terkini</h2>
         
-        <div class="news-featured animate-on-scroll" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <div class="news-featured" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 3rem;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
                 <div>
                     <div style="display: inline-block; background: #B8E600; color: #0066B2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem;">
@@ -1034,7 +1041,7 @@
         </div>
 
         <!-- Detail Berita Section -->
-        <div id="detail-berita" class="animate-on-scroll" style="background: white; padding: 3rem; border-radius: 20px; border: 2px solid #e9ecef;">
+        <div id="detail-berita"  style="background: white; padding: 3rem; border-radius: 20px; border: 2px solid #e9ecef;">
             <h3 style="color: #0066B2; font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid #B8E600;">
                 Detail Kampanye "Bijak Plastik"
             </h3>
@@ -1084,10 +1091,10 @@
                 <div style="position: absolute; bottom: 20px; right: 30px; font-size: 5rem; color: rgba(184, 230, 0, 0.3); line-height: 0;">"</div>
                 <div style="position: relative; z-index: 1;">
                     <p style="color: white; font-size: 1.3rem; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
-                        Kami percaya perubahan besar dimulai dari tindakan kecil. Kampanye 'Bijak Plastik' ini bukan sekadar ajakan, tetapi bentuk tanggung jawab kami untuk menciptakan sistem pengelolaan sampah plastik yang berkelanjutan dan melibatkan semua lapisan masyarakat.
+                        Kami percaya perubahan besar dimulai dari tindakan kecil. Kampanye ini adalah bentuk tanggung jawab kami untuk menciptakan rantai pasokan dan ekonomi sirkular yang lebih baik.
                     </p>
                     <p style="color: #B8E600; font-weight: bold; font-size: 1.1rem; text-align: center;">
-                        — Ira Noviarti, Presiden Direktur PT Unilever Indonesia Tbk
+                        — PT Unilever Indonesia Tbk
                     </p>
                 </div>
             </div>
@@ -1118,22 +1125,22 @@
     </section>
 
     <!-- Fakta Kritis -->
-    <div class="fakta-section">
+    <div class="fakta-section" id="fakta">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
             <h2 class="section-title">Fakta Kritis: Mengapa Kita Harus Bertindak Sekarang</h2>
         </div>
         <div class="fakta-container">
-            <div class="fakta-box animate-on-scroll">
+            <div class="fakta-box">
                 <div class="fakta-icon">🗑️</div>
                 <div class="fakta-number">12 Juta Ton</div>
                 <div class="fakta-text">Sampah plastik Indonesia per tahun yang mencemari lingkungan kita</div>
             </div>
-            <div class="fakta-box animate-on-scroll">
+            <div class="fakta-box">
                 <div class="fakta-icon">♻️</div>
                 <div class="fakta-number">9%</div>
                 <div class="fakta-text">Yang berhasil didaur ulang - masih sangat rendah dan perlu ditingkatkan</div>
             </div>
-            <div class="fakta-box animate-on-scroll">
+            <div class="fakta-box">
                 <div class="fakta-icon">🌍</div>
                 <div class="fakta-number">91%</div>
                 <div class="fakta-text">Plastik tidak didaur ulang dan mencemari tanah, air, dan laut kita</div>
@@ -1145,19 +1152,19 @@
     <section id="langkah">
         <h2 class="section-title">3 Langkah Bijak Plastik Yang Bisa Kamu Lakukan</h2>
         <div class="langkah-container">
-            <div class="langkah-card animate-on-scroll">
+            <div class="langkah-card">
                 <div class="langkah-number">1</div>
                 <div class="langkah-icon">🗂️</div>
                 <div class="langkah-title">PILAH</div>
                 <div class="langkah-desc">Pisahkan sampah kemasan plastik dari sampah rumah tangga lainnya. Langkah pertama yang sederhana namun sangat penting!</div>
             </div>
-            <div class="langkah-card animate-on-scroll">
+            <div class="langkah-card">
                 <div class="langkah-number">2</div>
                 <div class="langkah-icon">💧</div>
                 <div class="langkah-title">BILAS & KERINGKAN</div>
                 <div class="langkah-desc">Bilas kemasan plastik bekas, rendam pada air agar bersih dan keringkan. Plastik bersih lebih mudah didaur ulang!</div>
             </div>
-            <div class="langkah-card animate-on-scroll">
+            <div class="langkah-card">
                 <div class="langkah-number">3</div>
                 <div class="langkah-icon">📍</div>
                 <div class="langkah-title">DROP</div>
@@ -1171,17 +1178,17 @@
         <h2>Drop Point Kami di Kota Besar</h2>
         <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Temukan lokasi terdekat untuk menyetor sampah plastik Anda</p>
         <div class="cities">
-            <div class="city-tag animate-on-scroll">📍 Jakarta</div>
-            <div class="city-tag animate-on-scroll">📍 Bandung</div>
-            <div class="city-tag animate-on-scroll">📍 Surabaya</div>
-            <div class="city-tag animate-on-scroll">📍 Medan</div>
-            <div class="city-tag animate-on-scroll">📍 Makassar</div>
+            <div class="city-tag">📍 Jakarta</div>
+            <div class="city-tag">📍 Bandung</div>
+            <div class="city-tag">📍 Surabaya</div>
+            <div class="city-tag">📍 Medan</div>
+            <div class="city-tag">📍 Makassar</div>
         </div>
     </div>
 
     <!-- Quote Section -->
     <div class="quote-section">
-        <div class="quote-content animate-on-scroll">
+        <div class="quote-content">
             <p class="quote-text">Kami percaya perubahan besar dimulai dari tindakan kecil. Kampanye ini adalah bentuk tanggung jawab kami untuk menciptakan rantai pasokan dan ekonomi sirkular yang lebih baik.</p>
             <p style="font-weight: bold; font-size: 1.2rem;">- PT Unilever Indonesia Tbk</p>
         </div>
@@ -1191,32 +1198,97 @@
     <section id="galeri">
         <h2 class="section-title">Galeri Kegiatan</h2>
         <div class="galeri-grid">
-            <div class="galeri-item animate-on-scroll">
+            <div class="galeri-item">
                 <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&h=400&fit=crop" alt="Kampanye Bijak Plastik">
                 <div class="galeri-caption">
                     <h3>Kampanye #BijakPlastik</h3>
                     <p>Sosialisasi program ke masyarakat</p>
                 </div>
             </div>
-            <div class="galeri-item animate-on-scroll">
+            <div class="galeri-item">
                 <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=600&h=400&fit=crop" alt="Daur Ulang Plastik">
                 <div class="galeri-caption">
                     <h3>Proses Daur Ulang</h3>
                     <p>Plastik diproses menjadi produk baru</p>
                 </div>
             </div>
-            <div class="galeri-item animate-on-scroll">
+            <div class="galeri-item">
                 <img src="https://images.unsplash.com/photo-1607968565043-36af90dde238?w=600&h=400&fit=crop" alt="Pembersihan Lingkungan">
                 <div class="galeri-caption">
                     <h3>Aksi Bersih Pantai</h3>
                     <p>Volunteer membersihkan sampah plastik</p>
                 </div>
             </div>
-            <div class="galeri-item animate-on-scroll">
+            <div class="galeri-item">
                 <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop" alt="Edukasi Masyarakat">
                 <div class="galeri-caption">
                     <h3>Workshop Edukasi</h3>
                     <p>Mengajarkan cara memilah sampah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Section -->
+    <section id="brosur" style="background: white; padding: 80px 2rem;">
+        <h2 class="section-title">📄 Brosur Digital Bijak Plastik</h2>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); opacity: 1 !important; transform: translateY(0) !important;">
+                
+                <!-- Download Button -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="color: #666; font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 500;">
+                        🌟 Lihat brosur lengkap kampanye Bijak Plastik atau bagikan ke teman dan keluarga!
+                    </p>
+                    
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="syifanurrohmatalgojali_047933496_T2.pdf" download style="display: inline-block; background: linear-gradient(135deg, #B8E600, #9FCC00); color: #0066B2; padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 5px 20px rgba(184, 230, 0, 0.3);" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(184, 230, 0, 0.5)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 20px rgba(184, 230, 0, 0.3)'">
+                            📥 Unduh Brosur PDF
+                        </a>
+                        
+                        <a href="syifanurrohmatalgojali_047933496_T2.pdf" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #0066B2, #00A3E0); color: white; padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0, 102, 178, 0.3);" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 102, 178, 0.5)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 20px rgba(0, 102, 178, 0.3)'">
+                            🔗 Buka di Tab Baru
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- PDF Viewer Inline -->
+                <div style="position: relative; width: 100%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+                    <div style="background: linear-gradient(135deg, #0066B2, #00A3E0); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: white; margin: 0; font-size: 1.3rem;">📖 Preview Brosur - 4 Halaman</h3>
+                        <p style="color: rgba(255,255,255,0.9); margin-top: 0.5rem; font-size: 0.95rem;">Scroll untuk melihat semua halaman</p>
+                    </div>
+                    
+                    <!-- Simple iframe PDF viewer -->
+                    <div style="position: relative; width: 100%; height: 900px; background: #525659;">
+                        <iframe 
+                            src="syifanurrohmatalgojali_047933496_T2.pdf#view=FitH&toolbar=1" 
+                            width="100%" 
+                            height="100%" 
+                            style="border: none; display: block;"
+                            allowfullscreen>
+                            <!-- Fallback jika iframe tidak support -->
+                            <div style="padding: 3rem; text-align: center; background: white; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+                                <p style="color: #666; font-size: 1.2rem; margin-bottom: 1.5rem;">
+                                    ⚠️ Browser Anda tidak mendukung tampilan PDF langsung.
+                                </p>
+                                <a href="syifanurrohmatalgojali_047933496_T2.pdf" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #0066B2, #00A3E0); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: bold; margin-bottom: 1rem;">
+                                    🔗 Buka PDF di Tab Baru
+                                </a>
+                                <a href="syifanurrohmatalgojali_047933496_T2.pdf" download style="display: inline-block; background: linear-gradient(135deg, #B8E600, #9FCC00); color: #0066B2; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: bold;">
+                                    📥 Unduh PDF
+                                </a>
+                            </div>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Info Box -->
+                <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); padding: 1.5rem; border-radius: 15px; border-left: 5px solid #ffc107; margin-top: 2rem; text-align: center;">
+                    <p style="color: #856404; margin: 0; font-size: 1rem; line-height: 1.8;">
+                        <strong>💡 Tips:</strong> Untuk pengalaman terbaik di mobile, gunakan tombol "Buka di Tab Baru" atau "Unduh PDF". Pastikan gunakan browser modern (Chrome/Firefox/Edge) untuk viewing optimal.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1227,17 +1299,17 @@
         <h2 class="section-title">Hubungi Kami & Ambil Bagian</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <div class="contact-item animate-on-scroll">
+                <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <h3>Alamat</h3>
                     <p>Jl. BSD Boulevard Barat No. 5, Tangerang</p>
                 </div>
-                <div class="contact-item animate-on-scroll">
+                <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <h3>Email</h3>
-                    <p><a href="mailto:corp.comm@unilever.co.id">corp.comm@unilever.co.id</a></p>
+                    <p><a href="/cdn-cgi/l/email-protection#ec8f839e9cc28f838181ac99828580899a899ec28f83c28588"><span class="__cf_email__" data-cfemail="a4c7cbd6d48ac7cbc9c9e4d1cacdc8c1d2c1d68ac7cb8acdc0">[email&#160;protected]</span></a></p>
                 </div>
-                <div class="contact-item animate-on-scroll">
+                <div class="contact-item">
                     <div class="contact-icon">🌐</div>
                     <h3>Website</h3>
                     <p><a href="https://www.sehataqua.co/bijakberplastik/" target="_blank">www.sehataqua.co/bijakberplastik/</a></p>
@@ -1271,7 +1343,114 @@
         </div>
     </footer>
 
+    <!-- PDF.js Library -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
+        // PDF.js Configuration
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        const scale = 1.5;
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Load and render PDF
+        function renderPage(num) {
+            pageRendering = true;
+            document.getElementById('pdf-loading').style.display = 'block';
+
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({scale: scale});
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    document.getElementById('pdf-loading').style.display = 'none';
+                    
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('current-page').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function changePage(direction) {
+            const newPage = pageNum + direction;
+            if (newPage >= 1 && newPage <= pdfDoc.numPages) {
+                pageNum = newPage;
+                queueRenderPage(pageNum);
+            }
+        }
+
+        function toggleFullscreen() {
+            const pdfContainer = document.getElementById('pdf-container');
+            if (!document.fullscreenElement) {
+                pdfContainer.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Load the PDF
+        const url = 'syifanurrohmatalgojali_047933496_T2.pdf';
+        
+        document.getElementById('pdf-loading').style.display = 'block';
+        
+        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('total-pages').textContent = pdfDoc.numPages;
+            renderPage(pageNum);
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            document.getElementById('pdf-loading').innerHTML = '<p style="color: #dc3545; font-weight: bold;">⚠️ Gagal memuat PDF. Silakan refresh halaman atau <a href="syifanurrohmatalgojali_047933496_T2.pdf" target="_blank" style="color: #0066B2; text-decoration: underline;">buka PDF di tab baru</a>.</p>';
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changePage(-1);
+            if (e.key === 'ArrowRight') changePage(1);
+        });
+
+        // Add spin animation for loading
+        const spinStyle = document.createElement('style');
+        spinStyle.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(spinStyle);
+    </script>
+
+    <script>
+        // Add js-enabled class for progressive enhancement
+        document.documentElement.classList.add('js-enabled');
+        
         // Scroll Progress Bar
         window.addEventListener('scroll', () => {
             const scrollProgress = document.getElementById('scrollProgress');
@@ -1551,13 +1730,3 @@
         const confettiStyle = document.createElement('style');
         confettiStyle.textContent = `
             @keyframes confettiFall {
-                to {
-                    transform: translate(var(--x), var(--y)) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(confettiStyle);
-    </script>
-</body>
-</html>

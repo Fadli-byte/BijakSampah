@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijak Plastik - Unilever Indonesia | Wujudkan Masa Depan Tanpa Sampah Plastik</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Animasi Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                clip-path: polygon(
+                    0% 45%,
+                    10% 40%,
+                    20% 45%,
+                    30% 40%,
+                    40% 45%,
+                    50% 40%,
+                    60% 45%,
+                    70% 40%,
+                    80% 45%,
+                    90% 40%,
+                    100% 45%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+            50% {
+                clip-path: polygon(
+                    0% 40%,
+                    10% 45%,
+                    20% 40%,
+                    30% 45%,
+                    40% 40%,
+                    50% 45%,
+                    60% 40%,
+                    70% 45%,
+                    80% 40%,
+                    90% 45%,
+                    100% 40%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(184, 230, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(184, 230, 0, 0.8), 0 0 60px rgba(184, 230, 0, 0.6);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes flip {
+            0% { transform: perspective(400px) rotateY(0); }
+            100% { transform: perspective(400px) rotateY(360deg); }
+        }
+
+        /* Floating Particles Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -50px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particle-float linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 2s; width: 20px; height: 20px; }
+        .particle:nth-child(3) { left: 30%; animation-duration: 18s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-duration: 14s; animation-delay: 1s; width: 25px; height: 25px; }
+        .particle:nth-child(5) { left: 50%; animation-duration: 16s; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 60%; animation-duration: 13s; animation-delay: 5s; width: 20px; height: 20px; }
+        .particle:nth-child(7) { left: 70%; animation-duration: 17s; animation-delay: 2s; }
+        .particle:nth-child(8) { left: 80%; animation-duration: 15s; animation-delay: 4s; width: 25px; height: 25px; }
+        .particle:nth-child(9) { left: 90%; animation-duration: 19s; animation-delay: 1s; }
+        .particle:nth-child(10) { left: 5%; animation-duration: 14s; animation-delay: 6s; width: 20px; height: 20px; }
+
+        /* Interactive Button with Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Header & Navigation */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #B8E600, #0066B2);
+            z-index: 1001;
+            transition: width 0.1s;
+            box-shadow: 0 2px 10px rgba(184, 230, 0, 0.5);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066B2 0%, #00A3E0 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            animation: swing 2s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        .logo img {
+            height: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 102, 178, 0.9), rgba(0, 163, 224, 0.9)), 
+                        url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=1600&h=900&fit=crop') center/cover;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hashtag {
+            font-size: 2rem;
+            color: #B8E600;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #B8E600;
+            color: #0066B2;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1.4s ease-out, bounce 2s infinite 2s;
+            box-shadow: 0 4px 15px rgba(184, 230, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #9FCC00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(184, 230, 0, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0066B2;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #B8E600;
+            margin: 1rem auto;
+            border-radius: 2px;
+            animation: expandWidth 2s ease-out;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100px;
+            }
+        }
+
+        /* Profil Perusahaan */
+        .profil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .profil-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .profil-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .profil-card:active {
+            animation: flip 0.6s ease-in-out;
+        }
+
+        .profil-card h3 {
+            color: #0066B2;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .profil-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Fakta Kritis */
+        .fakta-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            width: 100%;
+        }
+
+        .fakta-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fakta-box {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fakta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0066B2, #B8E600);
+        }
+
+        .fakta-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            animation: shake 0.5s ease-in-out, glow 2s ease-in-out infinite;
+        }
+
+        .fakta-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .fakta-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #DC143C;
+            margin-bottom: 0.5rem;
+        }
+
+        .fakta-text {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Langkah Bijak Plastik */
+        .langkah-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .langkah-card {
+            background: linear-gradient(135deg, #0066B2 0%, #00A3E0 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .langkah-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s;
+        }
+
+        .langkah-card:hover::before {
+            transform: scale(1);
+        }
+
+        .langkah-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 102, 178, 0.3);
+        }
+
+        .langkah-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #B8E600;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .langkah-icon {
+            font-size: 5rem;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+
+        .langkah-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .langkah-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Drop Points */
+        .drop-points {
+            background: linear-gradient(135deg, #B8E600 0%, #9FCC00 100%);
+            padding: 80px 2rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .drop-points h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cities {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .city-tag {
+            background: white;
+            color: #0066B2;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(184, 230, 0, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .city-tag:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .city-tag:hover {
+            transform: translateY(-5px) scale(1.1) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, white, #B8E600);
+        }
+
+        .city-tag:active {
+            transform: translateY(-2px) scale(0.95);
+        }
+
+        /* Galeri */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .galeri-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .galeri-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .galeri-item:active {
+            transform: scale(1.15);
+        }
+
+        .galeri-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .galeri-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeri-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s;
+        }
+
+        .galeri-item:hover .galeri-caption {
+            transform: translateY(0);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #005A8C 0%, #0066B2 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .quote-text::before,
+        .quote-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: #B8E600;
+            line-height: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #f8f9fa;
+            padding: 80px 2rem;
+            width: 100%;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #0066B2;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            color: #0066B2;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #0066B2;
+        }
+
+        /* Footer */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #B8E600, #9FCC00);
+            color: #0066B2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(184, 230, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(184, 230, 0, 0.6);
+            animation: bounce 1s infinite;
+        }
+
+        .back-to-top:active {
+            transform: translateY(-5px) scale(0.95);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #003D5C 0%, #0066B2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-hashtag {
+            font-size: 2rem;
+            color: #B8E600;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #B8E600;
+            color: #0066B2;
+            transform: translateY(-5px) rotate(360deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .fakta-number {
+                font-size: 2rem;
+            }
+
+            .fakta-container,
+            .langkah-container,
+            .galeri-grid {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 60px 1rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">♻️</span>
+                <span>BIJAK PLASTIK</span>
+            </div>
+            <ul>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#berita">Berita</a></li>
+                <li><a href="#fakta">Fakta</a></li>
+                <li><a href="#langkah">Langkah</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Wujudkan Masa Depan Tanpa Sampah Plastik</h1>
+            <p>Bersama Unilever, mari kita ciptakan lingkungan yang lebih bersih dan berkelanjutan</p>
+            <div class="hashtag">#BijakPlastik</div>
+            <br><br>
+            <a href="#langkah" class="cta-button ripple">Saatnya Bagian Dari Solusi →</a>
+        </div>
+    </section>
+
+    <!-- Profil Perusahaan -->
+    <section id="profil">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="profil-grid">
+            <div class="profil-card animate-on-scroll">
+                <h3>🎯 Visi Kami</h3>
+                <p>"To make sustainable living commonplace" - Menjadikan kehidupan berkelanjutan sebagai hal yang umum dalam keseharian masyarakat Indonesia dan dunia.</p>
+            </div>
+            <div class="profil-card animate-on-scroll">
+                <h3>💡 Misi Kami</h3>
+                <p>Mengumpulkan dan memproses limbah plastik kemasan untuk menciptakan ekonomi sirkular yang lebih baik bagi lingkungan dan masyarakat.</p>
+            </div>
+            <div class="profil-card animate-on-scroll">
+                <h3>🤝 Kemitraan</h3>
+                <p>Kami bergerak bersama Waste4Change, Gerakan Indonesia Bersih, dan komunitas lokal untuk mewujudkan Indonesia bebas sampah plastik.</p>
+            </div>
+            <div class="profil-card animate-on-scroll">
+                <h3>🏢 PT Unilever Indonesia Tbk</h3>
+                <p>Perusahaan consumer goods terkemuka yang berkomitmen pada keberlanjutan lingkungan melalui berbagai program tanggung jawab sosial perusahaan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita / News Section -->
+    <section id="berita" style="background: white;">
+        <h2 class="section-title">Berita Terkini</h2>
+        
+        <div class="news-featured animate-on-scroll" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <div style="display: inline-block; background: #B8E600; color: #0066B2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem;">
+                        📰 PRESS RELEASE
+                    </div>
+                    <h3 style="color: #0066B2; font-size: 2rem; margin-bottom: 1rem; line-height: 1.3;">
+                        Unilever Luncurkan Kampanye Sosial "Bijak Plastik" untuk Dukung Gaya Hidup Berkelanjutan
+                    </h3>
+                    <p style="color: #666; font-size: 1rem; margin-bottom: 0.5rem;">
+                        <strong>Jakarta, 12 Oktober 2025</strong>
+                    </p>
+                    <p style="color: #666; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                        PT Unilever Indonesia Tbk kembali mempertegas komitmennya terhadap kelestarian lingkungan dengan meluncurkan kampanye sosial bertajuk "Bijak Plastik" sebagai bagian dari upaya mewujudkan kehidupan berkelanjutan di Indonesia.
+                    </p>
+                    <a href="#detail-berita" style="display: inline-block; background: linear-gradient(135deg, #0066B2, #00A3E0); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0, 102, 178, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0, 102, 178, 0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 15px rgba(0, 102, 178, 0.3)'">
+                        Baca Selengkapnya →
+                    </a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=600&fit=crop" alt="Kampanye Bijak Plastik" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Berita Section -->
+        <div id="detail-berita" class="animate-on-scroll" style="background: white; padding: 3rem; border-radius: 20px; border: 2px solid #e9ecef;">
+            <h3 style="color: #0066B2; font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid #B8E600;">
+                Detail Kampanye "Bijak Plastik"
+            </h3>
+
+            <!-- 5W + 1H Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #0066B2 0%, #00A3E0 100%); color: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">❓</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #B8E600;">WHAT</h4>
+                    <p style="line-height: 1.7;">Kampanye sosial "Bijak Plastik" untuk meningkatkan kesadaran masyarakat terhadap pengelolaan sampah plastik yang bertanggung jawab.</p>
+                </div>
+
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #B8E600 0%, #9FCC00 100%); color: #0066B2; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">WHO</h4>
+                    <p style="line-height: 1.7;">PT Unilever Indonesia Tbk bekerja sama dengan Waste4Change, Gerakan Indonesia Bersih, dan komunitas peduli lingkungan.</p>
+                </div>
+
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #00A3E0 0%, #0066B2 100%); color: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📅</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #B8E600;">WHEN</h4>
+                    <p style="line-height: 1.7;">Diluncurkan 12 Oktober 2025, berlangsung selama 3 bulan di berbagai kota besar Indonesia.</p>
+                </div>
+
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #9FCC00 0%, #B8E600 100%); color: #0066B2; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">WHERE</h4>
+                    <p style="line-height: 1.7;">Peluncuran di Jakarta Convention Center, disusul kegiatan di Bandung, Surabaya, Medan, dan Makassar.</p>
+                </div>
+
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #0066B2 0%, #005A8C 100%); color: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #B8E600;">WHY</h4>
+                    <p style="line-height: 1.7;">Indonesia menghasilkan 12 juta ton sampah plastik/tahun, hanya 9% yang didaur ulang. Unilever ingin mengurangi dampak lingkungan.</p>
+                </div>
+
+                <div class="news-detail-card" style="background: linear-gradient(135deg, #B8E600 0%, #9FCC00 100%); color: #0066B2; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔧</div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">HOW</h4>
+                    <p style="line-height: 1.7;">Kampanye digital, workshop daur ulang, konten edukatif media sosial, dan penyediaan drop point di area publik.</p>
+                </div>
+            </div>
+
+            <!-- Quote Section in News -->
+            <div style="background: linear-gradient(135deg, #005A8C 0%, #0066B2 100%); padding: 3rem; border-radius: 15px; margin-bottom: 2rem; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 20px; left: 30px; font-size: 5rem; color: rgba(184, 230, 0, 0.3); line-height: 0;">"</div>
+                <div style="position: absolute; bottom: 20px; right: 30px; font-size: 5rem; color: rgba(184, 230, 0, 0.3); line-height: 0;">"</div>
+                <div style="position: relative; z-index: 1;">
+                    <p style="color: white; font-size: 1.3rem; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
+                        Kami percaya perubahan besar dimulai dari tindakan kecil. Kampanye 'Bijak Plastik' ini bukan sekadar ajakan, tetapi bentuk tanggung jawab kami untuk menciptakan sistem pengelolaan sampah plastik yang berkelanjutan dan melibatkan semua lapisan masyarakat.
+                    </p>
+                    <p style="color: #B8E600; font-weight: bold; font-size: 1.1rem; text-align: center;">
+                        — Ira Noviarti, Presiden Direktur PT Unilever Indonesia Tbk
+                    </p>
+                </div>
+            </div>
+
+            <!-- Program Highlights -->
+            <div style="margin-top: 3rem;">
+                <h4 style="color: #0066B2; font-size: 1.5rem; margin-bottom: 2rem; text-align: center;">🎯 Program Unggulan</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #B8E600;">
+                        <h5 style="color: #0066B2; margin-bottom: 0.5rem;">📱 Kampanye Digital</h5>
+                        <p style="color: #666; font-size: 0.95rem;">Konten edukatif di media sosial dan platform digital</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #0066B2;">
+                        <h5 style="color: #0066B2; margin-bottom: 0.5rem;">🎓 Workshop Edukatif</h5>
+                        <p style="color: #666; font-size: 0.95rem;">Pelatihan daur ulang bersama komunitas</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #B8E600;">
+                        <h5 style="color: #0066B2; margin-bottom: 0.5rem;">📦 Drop Point</h5>
+                        <p style="color: #666; font-size: 0.95rem;">Pengumpulan plastik di area publik dan kampus</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #0066B2;">
+                        <h5 style="color: #0066B2; margin-bottom: 0.5rem;">🤝 Kolaborasi</h5>
+                        <p style="color: #666; font-size: 0.95rem;">Kerjasama dengan sekolah dan organisasi lingkungan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fakta Kritis -->
+    <div class="fakta-section">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Fakta Kritis: Mengapa Kita Harus Bertindak Sekarang</h2>
+        </div>
+        <div class="fakta-container">
+            <div class="fakta-box animate-on-scroll">
+                <div class="fakta-icon">🗑️</div>
+                <div class="fakta-number">12 Juta Ton</div>
+                <div class="fakta-text">Sampah plastik Indonesia per tahun yang mencemari lingkungan kita</div>
+            </div>
+            <div class="fakta-box animate-on-scroll">
+                <div class="fakta-icon">♻️</div>
+                <div class="fakta-number">9%</div>
+                <div class="fakta-text">Yang berhasil didaur ulang - masih sangat rendah dan perlu ditingkatkan</div>
+            </div>
+            <div class="fakta-box animate-on-scroll">
+                <div class="fakta-icon">🌍</div>
+                <div class="fakta-number">91%</div>
+                <div class="fakta-text">Plastik tidak didaur ulang dan mencemari tanah, air, dan laut kita</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Langkah Bijak Plastik -->
+    <section id="langkah">
+        <h2 class="section-title">3 Langkah Bijak Plastik Yang Bisa Kamu Lakukan</h2>
+        <div class="langkah-container">
+            <div class="langkah-card animate-on-scroll">
+                <div class="langkah-number">1</div>
+                <div class="langkah-icon">🗂️</div>
+                <div class="langkah-title">PILAH</div>
+                <div class="langkah-desc">Pisahkan sampah kemasan plastik dari sampah rumah tangga lainnya. Langkah pertama yang sederhana namun sangat penting!</div>
+            </div>
+            <div class="langkah-card animate-on-scroll">
+                <div class="langkah-number">2</div>
+                <div class="langkah-icon">💧</div>
+                <div class="langkah-title">BILAS & KERINGKAN</div>
+                <div class="langkah-desc">Bilas kemasan plastik bekas, rendam pada air agar bersih dan keringkan. Plastik bersih lebih mudah didaur ulang!</div>
+            </div>
+            <div class="langkah-card animate-on-scroll">
+                <div class="langkah-number">3</div>
+                <div class="langkah-icon">📍</div>
+                <div class="langkah-title">DROP</div>
+                <div class="langkah-desc">Kumpulkan dan bawa sampah kemasan plastik bersih ke drop point terdekat di kotamu. Jadilah bagian dari solusi!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drop Points -->
+    <div class="drop-points">
+        <h2>Drop Point Kami di Kota Besar</h2>
+        <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Temukan lokasi terdekat untuk menyetor sampah plastik Anda</p>
+        <div class="cities">
+            <div class="city-tag animate-on-scroll">📍 Jakarta</div>
+            <div class="city-tag animate-on-scroll">📍 Bandung</div>
+            <div class="city-tag animate-on-scroll">📍 Surabaya</div>
+            <div class="city-tag animate-on-scroll">📍 Medan</div>
+            <div class="city-tag animate-on-scroll">📍 Makassar</div>
+        </div>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <div class="quote-content animate-on-scroll">
+            <p class="quote-text">Kami percaya perubahan besar dimulai dari tindakan kecil. Kampanye ini adalah bentuk tanggung jawab kami untuk menciptakan rantai pasokan dan ekonomi sirkular yang lebih baik.</p>
+            <p style="font-weight: bold; font-size: 1.2rem;">- PT Unilever Indonesia Tbk</p>
+        </div>
+    </div>
+
+    <!-- Galeri -->
+    <section id="galeri">
+        <h2 class="section-title">Galeri Kegiatan</h2>
+        <div class="galeri-grid">
+            <div class="galeri-item animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&h=400&fit=crop" alt="Kampanye Bijak Plastik">
+                <div class="galeri-caption">
+                    <h3>Kampanye #BijakPlastik</h3>
+                    <p>Sosialisasi program ke masyarakat</p>
+                </div>
+            </div>
+            <div class="galeri-item animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=600&h=400&fit=crop" alt="Daur Ulang Plastik">
+                <div class="galeri-caption">
+                    <h3>Proses Daur Ulang</h3>
+                    <p>Plastik diproses menjadi produk baru</p>
+                </div>
+            </div>
+            <div class="galeri-item animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1607968565043-36af90dde238?w=600&h=400&fit=crop" alt="Pembersihan Lingkungan">
+                <div class="galeri-caption">
+                    <h3>Aksi Bersih Pantai</h3>
+                    <p>Volunteer membersihkan sampah plastik</p>
+                </div>
+            </div>
+            <div class="galeri-item animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop" alt="Edukasi Masyarakat">
+                <div class="galeri-caption">
+                    <h3>Workshop Edukasi</h3>
+                    <p>Mengajarkan cara memilah sampah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontak" class="contact-section">
+        <h2 class="section-title">Hubungi Kami & Ambil Bagian</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">📍</div>
+                    <h3>Alamat</h3>
+                    <p>Jl. BSD Boulevard Barat No. 5, Tangerang</p>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:corp.comm@unilever.co.id">corp.comm@unilever.co.id</a></p>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Website</h3>
+                    <p><a href="https://www.sehataqua.co/bijakberplastik/" target="_blank">www.sehataqua.co/bijakberplastik/</a></p>
+                </div>
+            </div>
+            <div style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); padding: 2rem; border-radius: 15px; text-align: center; margin-top: 2rem;">
+                <h3 style="color: #0066B2; font-size: 1.5rem; margin-bottom: 1rem;">📌 Mulai Aksi Hari Ini!</h3>
+                <p style="color: #333; font-size: 1.1rem;">Kunjungi website kami untuk peta drop point terdekat dan mulai aksi bijak plastik Anda hari ini!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ⬆️
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-hashtag">#BijakPlastik</div>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Bersama Unilever, Wujudkan Masa Depan Tanpa Sampah Plastik</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">▶️</a>
+            </div>
+            <p>&copy; 2024 PT Unilever Indonesia Tbk. All Rights Reserved.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Saatnya Bagian Dari Solusi | #BijakPlastik</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Counter animation for facts
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
+        // Observe fact numbers
+        const factObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElement = entry.target.querySelector('.fakta-number');
+                    if (numberElement && !numberElement.classList.contains('counted')) {
+                        numberElement.classList.add('counted');
+                        const text = numberElement.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        if (!isNaN(number)) {
+                            numberElement.textContent = '0';
+                            setTimeout(() => {
+                                animateCounter(numberElement, number);
+                            }, 200);
+                        }
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fakta-box').forEach(box => {
+            factObserver.observe(box);
+        });
+
+        // Interactive City Tags with Click Effect
+        document.querySelectorAll('.city-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const city = this.textContent.replace('📍 ', '');
+                alert(`Terima kasih atas minat Anda!\n\nDrop point di ${city} siap melayani Anda.\n\nKunjungi website kami untuk detail lokasi lengkap.`);
+                
+                // Add temporary animation
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+            });
+        });
+
+        // Interactive Profile Cards with Click Info
+        document.querySelectorAll('.profil-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('h3').textContent;
+                this.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        });
+
+        // Galeri Zoom Effect
+        document.querySelectorAll('.galeri-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const caption = this.querySelector('.galeri-caption h3').textContent;
+                
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                    animation: fadeIn 0.3s;
+                `;
+                
+                const zoomedImg = document.createElement('img');
+                zoomedImg.src = img.src;
+                zoomedImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                    animation: zoomIn 0.3s;
+                `;
+                
+                overlay.appendChild(zoomedImg);
+                document.body.appendChild(overlay);
+                
+                overlay.addEventListener('click', () => {
+                    overlay.style.animation = 'fadeOut 0.3s';
+                    setTimeout(() => {
+                        document.body.removeChild(overlay);
+                    }, 300);
+                });
+            });
+        });
+
+        // Add CSS for zoom animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            @keyframes zoomIn {
+                from { transform: scale(0.5); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+            .news-detail-card {
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            .news-detail-card:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Interactive news cards
+        document.querySelectorAll('.news-detail-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const content = this.querySelector('p').textContent;
+                const title = this.querySelector('h4').textContent;
+                
+                // Create a modal-like effect
+                this.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        });
+
+        // Langkah Cards Interactive Tooltip
+        document.querySelectorAll('.langkah-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                const tips = [
+                    'Mulai dari rumah Anda! Sediakan dua tempat sampah terpisah.',
+                    'Gunakan sabun ringan dan air bersih untuk membilas kemasan.',
+                    'Cek website kami untuk lokasi drop point terdekat!'
+                ];
+                
+                // Store original title
+                if (!this.dataset.originalTitle) {
+                    this.dataset.originalTitle = this.querySelector('.langkah-desc').textContent;
+                }
+                
+                this.querySelector('.langkah-desc').textContent = tips[index];
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (this.dataset.originalTitle) {
+                    this.querySelector('.langkah-desc').textContent = this.dataset.originalTitle;
+                }
+            });
+        });
+
+        // Add confetti effect on CTA button click
+        const ctaButton = document.querySelector('.cta-button');
+        ctaButton.addEventListener('click', function(e) {
+            createConfetti(e.pageX, e.pageY);
+        });
+
+        function createConfetti(x, y) {
+            const colors = ['#B8E600', '#0066B2', '#00A3E0', '#FFD700'];
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 10px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    left: ${x}px;
+                    top: ${y}px;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    animation: confettiFall ${0.5 + Math.random()}s ease-out forwards;
+                `;
+                
+                const angle = (Math.PI * 2 * i) / 30;
+                const velocity = 50 + Math.random() * 50;
+                confetti.style.setProperty('--x', Math.cos(angle) * velocity + 'px');
+                confetti.style.setProperty('--y', Math.sin(angle) * velocity + 'px');
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    document.body.removeChild(confetti);
+                }, 1000);
+            }
+        }
+
+        // Add confetti animation
+        const confettiStyle = document.createElement('style');
+        confettiStyle.textContent = `
+            @keyframes confettiFall {
+                to {
+                    transform: translate(var(--x), var(--y)) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(confettiStyle);
+    </script>
+</body>
+</html>
